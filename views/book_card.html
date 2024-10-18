@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Card</title>
+    <style>
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #3182ce;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #2b6cb0;
+        }
+
+        .card img {
+            max-height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 100%;
+        }
+
+        .danger {
+            color: #e53e3e;
+        }
+    </style>
+</head>
+<body>
+    <div class="card h-100">
+        <img src="{{book_image}}" class="card-img-top" alt="{{book_image}}">
+        <div class="card-body">
+            <h5 class="card-title">{{book_name}}</h5>
+            <p class="card-text">{{book_description}}</p>
+            
+            {{#if is_borrowed}}
+            <div><b class="danger">Already borrowed</b></div>
+            {{else}}
+            <a href="borrow.php?book_id={{book_id}}" class="btn btn-primary">Borrow</a>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>

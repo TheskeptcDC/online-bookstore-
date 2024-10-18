@@ -1,0 +1,64 @@
+
+<body>
+
+<div class="container">
+  
+  </div>
+
+  <!-- Registration Form -->
+  <div id="register-form" class="form-container">
+    <h2>Create Account</h2>
+    
+    <input type="text" id="first-name" placeholder="First Name" required>
+    <input type="text" id="last-name" placeholder="Last Name" required>
+    
+    <input type="email" id="email" placeholder="Email Address" required>
+    
+    <input type="tel" id="phone-number" placeholder="Phone Number" required pattern="[0-9]{10}">
+    
+    <input type="text" id="residential-area" placeholder="Residential Area" required>
+    
+    <input type="date" id="dob" placeholder="Date of Birth" required>
+    
+    <input type="password" id="register-password" placeholder="Password" required>
+    
+    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+    
+    <button onclick="register()">Register</button>
+    
+    <!-- Error message for registration -->
+    <div id="register-error" class="error-message"></div>
+
+    <p class="link">Already have an account? <a href="#" onclick="toggleForms()">Login here</a>.</p>
+  </div>
+
+</div>
+
+<script>
+function toggleForms() {
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+
+  // Toggle visibility of the forms
+  loginForm.classList.toggle('active');
+  registerForm.classList.toggle('active');
+}
+
+function login() {
+  const username = document.getElementById('login-username').value.trim();
+  const password = document.getElementById('login-password').value.trim();
+  
+  const errorDiv = document.getElementById('login-error');
+  
+  // Clear previous error messages
+  errorDiv.innerHTML = '';
+
+  // Validate input
+  if (!username || !password) {
+     errorDiv.innerHTML = "Please fill in your details.";
+     return;
+   }
+
+   // Simulated authentication logic (replace with your actual logic)
+   const validUsername = "user"; // Example valid username
+   const validPassword = "pass"; // Example valid password
